@@ -1,0 +1,19 @@
+﻿<div class="kt-header__topbar-item kt-header__topbar-item--user">
+    <div class="kt-header__topbar-wrapper" data-toggle="dropdown"
+         data-offset="10px,10px" aria-expanded="false">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="" class="kt-header__topbar-welcome">Hii - @User.Identity.Name.ToString()</a>
+            <a href=@Url.Content("/Login/Logout") class="kt-header__topbar-welcome">Logout</a>
+            @*<a>@Session["username"]</a>
+            <a>@Session["user_id"]</a>*@
+
+        }
+        else
+        {
+            <a href=@Url.Content("/Login/Register") class="kt-header__topbar-welcome">Register</a>
+            <a href=@Url.Content("/Login/Loginuser") class="kt-header__topbar-welcome">Login</a>
+        }
+        
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<JustFinderTest.Category>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+   
+    <div class="col-xl-4 col-lg-4 order-lg-2 order-xl-1">
+        <a href="@Url.Action("SubcatList","Subcategories",new { categoryid= item.category_id})">
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-widget14">
+                    <div class="kt-widget14__header kt-margin-b-30">
+                        <h3 class="kt-widget14__title">
+                            @Html.DisplayFor(modelItem => item.category_name)
+                        </h3>
+                        <span class="kt-widget14__desc">
+                            Check out each collumn for more details
+                        </span>
+                    </div>
+                    <img src="@Html.DisplayFor(modelItem => item.category_img)" class="align-content-center"/>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+        }
+</div>

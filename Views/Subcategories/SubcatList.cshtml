@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JustFinderTest.Subcategory>
+
+@{
+    ViewBag.Title = "SubcatList";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid col-8">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    SubCategories
+                </h3>
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+    <div class="kt-portlet">
+
+            <div class="kt-portlet__body">
+
+                <div class="kt-widget kt-widget--user-profile-3">
+                    <div class="kt-widget__top">
+                        <div class="kt-widget__media kt-hidden-">
+                            <img src="@Html.DisplayFor(modelItem => item.subcat_img)" />
+                        </div>
+                        <div class="kt-widget__content">
+                            <div class="kt-widget__head">
+                                <a href="@Url.Action("ListBySubCategory","Business_detail",new { Subcategoryid= item.subcat_id})" class="kt-widget__username">
+                                    @Html.DisplayFor(modelItem => item.subcat_name)
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+        }
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>

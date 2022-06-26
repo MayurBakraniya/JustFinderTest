@@ -1,0 +1,82 @@
+﻿@model JustFinderTest.Subcategory
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Edit", "Subcategories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    @Html.AntiForgeryToken()
+
+
+    <div class="kt-container  kt-grid__item kt-grid__item--fluid">
+        <div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
+            <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon-more-v2"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                        Edit Admin
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <div class="kt-portlet__head-wrapper">
+                        <div class="dropdown dropdown-inline">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kt-portlet__body">
+                <form asp-action="Edit" class="kt-form" id="kt_form">
+                    <div class="row">
+                        <div class="col-xl-2"></div>
+                        <div class="col-xl-8">
+                            <div class="kt-section">
+                                <div class="kt-section__body">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.subcat_id)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.subcat_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("category_id", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.category_id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.subcat_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.subcat_name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.subcat_name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.subcat_img, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                
+                                                <input type="file" name="ImgFile" class="form-control col-sm-10" />
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.subcat_img, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Update" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--end::Portlet-->
+    </div>
+}

@@ -1,0 +1,113 @@
+﻿@model JustFinderTest.Business_detail
+
+@{
+    ViewBag.Title = "Listing";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+}
+
+
+<div class="kt-content  kt-content--fit-top  kt-grid_item kt-grid_item--fluid kt-grid kt-grid--hor"
+     id="kt_content">
+
+    <!-- begin:: Content -->
+    <!-- begin:: hero -->
+    <div class="kt-sc-license"
+         style="background-image: url('../../../../../Content/assets/media/bg/bg-9.jpg')">
+
+        <div class="kt-container ">
+            <div class="kt-sc__top">
+                <h3 class="kt-sc__title">
+                    Business Details
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!-- end:: hero -->
+    <div class="kt-negative-spacing--7"></div>
+    <!-- begin:: infobox -->
+    <div class="kt-grid__item">
+        <div class="kt-container ">
+            <div class="kt-portlet">
+                <div class="kt-portlet__body">
+                    <div class="kt-infobox">
+                        <div class="kt-infobox__body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img src="@Html.DisplayFor(model => model.img)" height="250" width="300"/>
+                                </div>
+                                
+                                
+                                <div class="col-lg-7">
+                                    <div class="kt-infobox__section">
+                                        <div class="kt-infobox__content">
+                                            <h2 class=" kt-widget__username">
+                                                @Html.DisplayFor(model => model.bname)
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="">
+
+                                        <div class="kt-portlet__body">
+                                            <div class="kt-widget kt-widget--user-profile-3">
+                                                <div class="kt-widget__top">
+                                                    <div class="kt-widget__media kt-hidden-">
+
+                                                    </div>
+                                                    <div class="kt-widget__pic kt-widget__pic--danger kt-font-danger kt-font-boldest kt-font-light kt-hidden">
+                                                        JM
+                                                    </div>
+                                                    <div class="kt-widget__content">
+                                                        <div class="kt-widget__head">
+
+                                                        </div>
+
+                                                        <div class="kt-widget__subhead">
+                                                            <a href="#"><i class="flaticon2-new-email"></i>@Html.DisplayFor(model => model.busi_email)</a>
+                                                            <a href="#"><i class="flaticon2-calendar-3"></i>@Html.DisplayFor(model => model.phno) </a>
+                                                            <a href="#"><i class="flaticon2-placeholder"></i>@Html.DisplayFor(model => model.Area.area_name)</a>
+                                                        </div>
+                                                        <div class="kt-widget__info kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
+                                                        <div>
+                                                            <i class="flaticon-line-graph"></i>
+                                                            @Html.DisplayFor(model => model.address)
+                                                        </div>
+
+                                                        <div>
+                                                            <i class="flaticon-placeholder"></i>
+                                                            @Html.DisplayFor(model => model.pincode)
+                                                        </div>
+
+                                                        <div>
+                                                            <i class="flaticon-clock-2"></i>
+                                                            @Html.DisplayFor(model => model.time)
+                                                        </div>
+
+                                                        <div class="kt-widget__info kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
+
+                                                        <h4>Know About-Us</h4>
+                                                        <div class="kt-widget__desc">
+                                                            @Html.DisplayFor(model => model.description)
+                                                            This description provides extensive details outlining the business. In addition to outlining goals and how the goals are going to be met, it includes where ...Business is the activity of making one's living or making money by producing or buying and selling products (such as goods and services).
+                                                            Business is the activity of making one's living or making money by producing or buying and selling products (such as goods and services).
+                                                        </div>
+
+
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: infobox -->
+    <!-- end:: Content -->
+</div>

@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JustFinderTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="area_id" />
+          </Key>
+          <Property Name="area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_id" Type="int" />
+          <Property Name="area_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Business_detail">
+          <Key>
+            <PropertyRef Name="bid" />
+          </Key>
+          <Property Name="bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bname" Type="nvarchar" MaxLength="50" />
+          <Property Name="busi_id" Type="int" />
+          <Property Name="subcat_id" Type="int" />
+          <Property Name="area_id" Type="int" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="pincode" Type="nvarchar" MaxLength="50" />
+          <Property Name="busi_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phno" Type="nvarchar" MaxLength="50" />
+          <Property Name="img" Type="nvarchar" MaxLength="200" />
+          <Property Name="time" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="Business_Owner">
+          <Key>
+            <PropertyRef Name="busi_id" />
+          </Key>
+          <Property Name="busi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phno" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="img" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="category_img" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_id" Type="int" />
+          <Property Name="city_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contact_Us">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="busi_id" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="faq_id" />
+          </Key>
+          <Property Name="faq_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="question" Type="nvarchar" MaxLength="50" />
+          <Property Name="answer" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rate" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="bid" Type="int" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="subcat_id" />
+          </Key>
+          <Property Name="subcat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="int" />
+          <Property Name="subcat_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="subcat_img" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Area_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Area" Type="Self.Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_id" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="city_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Business_Owner">
+          <End Role="Business_Owner" Type="Self.Business_Owner" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Owner">
+              <PropertyRef Name="busi_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="busi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Subcategory">
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="subcat_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="subcat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Us_Business_Owner">
+          <End Role="Business_Owner" Type="Self.Business_Owner" Multiplicity="0..1" />
+          <End Role="Contact_Us" Type="Self.Contact_Us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Owner">
+              <PropertyRef Name="busi_id" />
+            </Principal>
+            <Dependent Role="Contact_Us">
+              <PropertyRef Name="busi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Business_detail">
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_detail">
+              <PropertyRef Name="bid" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Subcategory">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JustFinderTestModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business_detail" EntityType="Self.Business_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business_Owner" EntityType="Self.Business_Owner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_Us" EntityType="Self.Contact_Us" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subcategory" EntityType="Self.Subcategory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Area_City" Association="Self.FK_Area_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Area" EntitySet="Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Area" Association="Self.FK_Business_detail_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Business_Owner" Association="Self.FK_Business_detail_Business_Owner">
+            <End Role="Business_Owner" EntitySet="Business_Owner" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Subcategory" Association="Self.FK_Business_detail_Subcategory">
+            <End Role="Subcategory" EntitySet="Subcategory" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Us_Business_Owner" Association="Self.FK_Contact_Us_Business_Owner">
+            <End Role="Business_Owner" EntitySet="Business_Owner" />
+            <End Role="Contact_Us" EntitySet="Contact_Us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Business_detail" Association="Self.FK_Review_Business_detail">
+            <End Role="Business_detail" EntitySet="Business_detail" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategory_Category" Association="Self.FK_Subcategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Subcategory" EntitySet="Subcategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JustFinderTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="area_id" />
+          </Key>
+          <Property Name="area_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_id" Type="Int32" />
+          <Property Name="area_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Area_City" FromRole="Area" ToRole="City" />
+          <NavigationProperty Name="Business_detail" Relationship="Self.FK_Business_detail_Area" FromRole="Area" ToRole="Business_detail" />
+        </EntityType>
+        <EntityType Name="Business_detail">
+          <Key>
+            <PropertyRef Name="bid" />
+          </Key>
+          <Property Name="bid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="busi_id" Type="Int32" />
+          <Property Name="subcat_id" Type="Int32" />
+          <Property Name="area_id" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="busi_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Business_detail_Area" FromRole="Business_detail" ToRole="Area" />
+          <NavigationProperty Name="Business_Owner" Relationship="Self.FK_Business_detail_Business_Owner" FromRole="Business_detail" ToRole="Business_Owner" />
+          <NavigationProperty Name="Subcategory" Relationship="Self.FK_Business_detail_Subcategory" FromRole="Business_detail" ToRole="Subcategory" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Business_detail" FromRole="Business_detail" ToRole="Review" />
+        </EntityType>
+        <EntityType Name="Business_Owner">
+          <Key>
+            <PropertyRef Name="busi_id" />
+          </Key>
+          <Property Name="busi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Business_detail" Relationship="Self.FK_Business_detail_Business_Owner" FromRole="Business_Owner" ToRole="Business_detail" />
+          <NavigationProperty Name="Contact_Us" Relationship="Self.FK_Contact_Us_Business_Owner" FromRole="Business_Owner" ToRole="Contact_Us" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="category_img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subcategories" Relationship="Self.FK_Subcategory_Category" FromRole="Category" ToRole="Subcategory" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_id" Type="Int32" />
+          <Property Name="city_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Areas" Relationship="Self.FK_Area_City" FromRole="City" ToRole="Area" />
+          <NavigationProperty Name="State" Relationship="Self.FK_City_State" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Contact_Us">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="busi_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Business_Owner" Relationship="Self.FK_Contact_Us_Business_Owner" FromRole="Contact_Us" ToRole="Business_Owner" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="faq_id" />
+          </Key>
+          <Property Name="faq_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="question" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="answer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bid" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Business_detail" Relationship="Self.FK_Review_Business_detail" FromRole="Review" ToRole="Business_detail" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_City_State" FromRole="State" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="subcat_id" />
+          </Key>
+          <Property Name="subcat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_id" Type="Int32" />
+          <Property Name="subcat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subcat_img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Business_detail" Relationship="Self.FK_Business_detail_Subcategory" FromRole="Subcategory" ToRole="Business_detail" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Subcategory_Category" FromRole="Subcategory" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Area_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Area" Type="Self.Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_id" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="city_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Business_Owner">
+          <End Role="Business_Owner" Type="Self.Business_Owner" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Owner">
+              <PropertyRef Name="busi_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="busi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_detail_Subcategory">
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="subcat_id" />
+            </Principal>
+            <Dependent Role="Business_detail">
+              <PropertyRef Name="subcat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Business_detail">
+          <End Role="Business_detail" Type="Self.Business_detail" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_detail">
+              <PropertyRef Name="bid" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Us_Business_Owner">
+          <End Role="Business_Owner" Type="Self.Business_Owner" Multiplicity="0..1" />
+          <End Role="Contact_Us" Type="Self.Contact_Us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Owner">
+              <PropertyRef Name="busi_id" />
+            </Principal>
+            <Dependent Role="Contact_Us">
+              <PropertyRef Name="busi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Subcategory">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JustFinderTestEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="Business_detail" EntityType="Self.Business_detail" />
+          <EntitySet Name="Business_Owner" EntityType="Self.Business_Owner" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Contact_Us" EntityType="Self.Contact_Us" />
+          <EntitySet Name="Faqs" EntityType="Self.Faq" />
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Subcategories" EntityType="Self.Subcategory" />
+          <AssociationSet Name="FK_Area_City" Association="Self.FK_Area_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Area" Association="Self.FK_Business_detail_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Business_Owner" Association="Self.FK_Business_detail_Business_Owner">
+            <End Role="Business_Owner" EntitySet="Business_Owner" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_detail_Subcategory" Association="Self.FK_Business_detail_Subcategory">
+            <End Role="Subcategory" EntitySet="Subcategories" />
+            <End Role="Business_detail" EntitySet="Business_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Business_detail" Association="Self.FK_Review_Business_detail">
+            <End Role="Business_detail" EntitySet="Business_detail" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Us_Business_Owner" Association="Self.FK_Contact_Us_Business_Owner">
+            <End Role="Business_Owner" EntitySet="Business_Owner" />
+            <End Role="Contact_Us" EntitySet="Contact_Us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategory_Category" Association="Self.FK_Subcategory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Subcategory" EntitySet="Subcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JustFinderTestModelStoreContainer" CdmEntityContainer="JustFinderTestEntities1">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="JustFinderTestModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="area_name" ColumnName="area_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Business_detail">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Business_detail">
+              <MappingFragment StoreEntitySet="Business_detail">
+                <ScalarProperty Name="bid" ColumnName="bid" />
+                <ScalarProperty Name="bname" ColumnName="bname" />
+                <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+                <ScalarProperty Name="subcat_id" ColumnName="subcat_id" />
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="busi_email" ColumnName="busi_email" />
+                <ScalarProperty Name="phno" ColumnName="phno" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Business_Owner">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Business_Owner">
+              <MappingFragment StoreEntitySet="Business_Owner">
+                <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phno" ColumnName="phno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_img" ColumnName="category_img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="JustFinderTestModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact_Us">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Contact_Us">
+              <MappingFragment StoreEntitySet="Contact_Us">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faqs">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Faq">
+              <MappingFragment StoreEntitySet="Faq">
+                <ScalarProperty Name="faq_id" ColumnName="faq_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="JustFinderTestModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="state_name" ColumnName="state_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subcategories">
+            <EntityTypeMapping TypeName="JustFinderTestModel.Subcategory">
+              <MappingFragment StoreEntitySet="Subcategory">
+                <ScalarProperty Name="subcat_id" ColumnName="subcat_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="subcat_name" ColumnName="subcat_name" />
+                <ScalarProperty Name="subcat_img" ColumnName="subcat_img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

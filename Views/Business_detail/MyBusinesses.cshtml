@@ -1,0 +1,58 @@
+﻿@model IEnumerable<JustFinderTest.Business_detail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid col-8">
+        <!--begin:: Portlet-->
+        @foreach (var item in Model)
+        {
+            <div class="kt-portlet">
+
+                <div class="kt-portlet__body">
+                    <div class="kt-widget kt-widget--user-profile-3">
+                        <div class="kt-widget__top">
+                            <div class="kt-widget__media kt-hidden-">
+                                <img src="@Html.DisplayFor(modelItem => item.img)" />
+                            </div>
+                            <div class="kt-widget__pic kt-widget__pic--danger kt-font-danger kt-font-boldest kt-font-light kt-hidden">
+                                JM
+                            </div>
+                            <div class="kt-widget__content">
+                                <div class="kt-widget__head">
+                                    <a href="" class="kt-widget__username">
+                                        @Html.DisplayFor(modelItem => item.bname)
+                                    </a>
+                                    <div>
+                                        @Html.ActionLink("Edit", "EditBusiness", new { id = item.bid }, new { @class = "btn btn-success btn-sm" })
+                                        @Html.ActionLink("Details", "Listing", new { id = item.bid }, new { @class = "btn btn-primary btn-sm" })
+                                    </div>
+                                </div>
+                                <div class="kt-widget__subhead">
+                                    <a href="#"><i class="flaticon2-new-email"></i>@Html.DisplayFor(modelItem => item.busi_email)</a>
+                                    <a href="#"><i class="flaticon2-calendar-3"></i>@Html.DisplayFor(modelItem => item.phno) </a>
+                                    <a href="#"><i class="flaticon2-placeholder"></i>@Html.DisplayFor(modelItem => item.Area.area_name)</a>
+                                </div>
+
+                                <div class="kt-widget__info">
+                                    <div class="kt-widget__desc">
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+    <div class="col-2"></div>
+</div>

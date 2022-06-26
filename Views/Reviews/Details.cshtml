@@ -1,0 +1,52 @@
+﻿@model JustFinderTest.Review
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Review</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_detail.bname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_detail.bname)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

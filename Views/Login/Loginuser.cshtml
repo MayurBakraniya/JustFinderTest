@@ -1,0 +1,226 @@
+﻿@model JustFinderTest.Business_Owner
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- begin::Head -->
+<!-- Mirrored from keenthemes.com/metronic/preview/demo1/custom/pages/user/login-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jan 2020 09:40:02 GMT -->
+<!-- Added by HTTrack -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <meta charset="utf-8" />
+
+    <title>Just Finder | User Login </title>
+    <meta name="description" content="Login page example">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--begin::Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">        <!--end::Fonts -->
+    <!--begin::Page Custom Styles(used by this page) -->
+    <link href="~/Content/assets/css/Login/login.css" rel="stylesheet" />
+    <!--end::Page Custom Styles -->
+    <!--begin::Global Theme Styles(used by all pages) -->
+
+    <link href="~/Content/assets/css/Login/style.bundle.css" rel="stylesheet" />
+    <!--end::Global Theme Styles -->
+    <!--begin::Layout Skins(used by all pages) -->
+    <link href="~/Content/assets/css/Login/plugins.bundle.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Login/light.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Login/Menu/light.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Login/dark.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Login/Aside/dark.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="https://keenthemes.com/metronic/themes/metronic/theme/default/demo1/dist/assets/media/logos/favicon.ico" />
+
+    <!-- Hotjar Tracking Code for keenthemes.com -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 1070954, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-37564768-1');
+    </script>
+</head>
+<!-- end::Head -->
+<!-- begin::Body -->
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- begin:: Page -->
+        <div class="kt-grid kt-grid--ver kt-grid--root">
+            <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
+                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+                    <!--begin::Aside-->
+                    <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-image: url(../Content/assets/media/bg/bg-4.jpg);">
+                        <div class="kt-grid__item">
+                            <a href="#" class="kt-login__logo">
+                                <img src="~/Content/assets/media/janvii.png" height="150" width="200" />
+                            </a>
+                        </div>
+                        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+                            <div class="kt-grid__item kt-grid__item--middle">
+                                <h3 class="kt-login__title">Welcome to Just Finder!</h3>
+                                <h4 class="kt-login__subtitle">Just Finder strives to be the destination where people can find and discover anything they want to know about nearest Businesses.</h4>
+                            </div>
+                        </div>
+                        <div class="kt-grid__item">
+                            <div class="kt-login__info">
+                                <div class="kt-login__copyright">
+
+                                </div>
+                                <div class="kt-login__menu">
+                                    <a href="#" class="kt-link">Privacy</a>
+                                    <a href="#" class="kt-link">Legal</a>
+                                    <a href="#" class="kt-link">Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin::Aside-->
+                    <!--begin::Content-->
+                    <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
+                        <!--begin::Head-->
+                        <div class="kt-login__head">
+                            <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
+                            <a href="#" class="kt-link kt-login__signup-link">Sign Up!</a>
+                        </div>
+                        <!--end::Head-->
+                        <!--begin::Body-->
+                        <div class="kt-login__body">
+
+                            <!--begin::Signin-->
+                            <div class="kt-login__form">
+                                <div class="kt-login__title">
+                                    <h3>User Sign In</h3>
+                                </div>
+
+                                <!--begin::Form-->
+                                <form class="kt-form" action="#" novalidate="novalidate" id="kt_login_form">
+                                    @if(ViewBag.err != null)
+                                    {
+                                        <p class="alert-danger">@ViewBag.err</p>
+                                    }
+                                    <div class="form-group">
+                                        @*@Html.EditorFor(model => model.useremail, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Email", @name = "email", @autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(model => model.useremail, "", new { @class = "text-danger" })*@
+                                        <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        @*@Html.EditorFor(model => model.userpassword, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "password", @name = "password", @autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(model => model.userpassword, "", new { @class = "text-danger" })*@
+                                        <input class="form-control" type="password" placeholder="Password" name="phno" autocomplete="off">
+                                    </div>
+                                    <!--begin::Action-->
+                                    <div class="kt-login__actions">
+                                        <a href="#" class="kt-link kt-login__link-forgot">
+                                            Forgot Password ?
+                                        </a>
+                                        <input type="submit" value="Login" class="btn btn-primary" />
+                                    </div>
+                                    <!--end::Action-->
+                                </form>
+                                <!--end::Form-->
+                                <!--begin::Divider-->
+                                <div class="kt-login__divider">
+                                    <div class="kt-divider">
+                                        <span></span>
+                                        <span>OR</span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <!--end::Divider-->
+                                <!--begin::Options-->
+                                <div class="kt-login__options">
+                                    <a href="#" class="btn btn-primary kt-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                        Facebook
+                                    </a>
+
+                                    <a href="#" class="btn btn-info kt-btn">
+                                        <i class="fab fa-twitter"></i>
+                                        Twitter
+                                    </a>
+
+                                    <a href="#" class="btn btn-danger kt-btn">
+                                        <i class="fab fa-google"></i>
+                                        Google
+                                    </a>
+                                </div>
+                                <!--end::Options-->
+                            </div>
+                            <!--end::Signin-->
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Content-->
+                </div>
+            </div>
+        </div>
+        <!-- end:: Page -->
+        <!-- begin::Global Config(global config for global JS sciprts) -->
+        <script>
+            var KTAppOptions = {
+                "colors": {
+                    "state": {
+                        "brand": "#5d78ff",
+                        "dark": "#282a3c",
+                        "light": "#ffffff",
+                        "primary": "#5867dd",
+                        "success": "#34bfa3",
+                        "info": "#36a3f7",
+                        "warning": "#ffb822",
+                        "danger": "#fd3995"
+                    },
+                    "base": {
+                        "label": [
+                            "#c5cbe3",
+                            "#a1a8c3",
+                            "#3d4465",
+                            "#3e4466"
+                        ],
+                        "shape": [
+                            "#f0f3ff",
+                            "#d9dffa",
+                            "#afb4d4",
+                            "#646c9a"
+                        ]
+                    }
+                }
+            };
+        </script>
+        <!-- end::Global Config -->
+        <!--begin::Global Theme Bundle(used by all pages) -->
+        <script src="~/Content/assets/js/Login/plugins.bundle.js"></script>
+        <script src="~/Content/assets/js/Login/scripts.bundle.js"></script>
+        <!--end::Global Theme Bundle -->
+        <!--begin::Page Scripts(used by this page) -->
+        <script src="~/Content/assets/js/Login/login.js"></script>
+        <!--end::Page Scripts -->
+    }
+</body>
+<!-- end::Body -->
+<!-- Mirrored from keenthemes.com/metronic/preview/demo1/custom/pages/user/login-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jan 2020 09:40:02 GMT -->
+</html>

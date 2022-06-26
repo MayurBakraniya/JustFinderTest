@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    <div class="row">
+
+        <div class="col-4">
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-portlet kt-portlet--height-fluid">
+                    <div class="kt-widget14">
+                        <div class="kt-widget14__header kt-margin-b-30">
+                            <h3 class="kt-widget14__title">
+                                @Html.ActionLink("Category", "Index", "Categories", new { area = "" }, new { @class = "navbar-brand" })
+                            </h3>
+                            <span class="kt-widget14__desc">
+                                Check out each collumn for more details
+                            </span>
+                        </div>
+                        <div class="kt-widget14__chart" style="height:120px;">
+                            <img src="~/Content/assets/media/bg/Category1.jpg" height="150" width="270" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-portlet kt-portlet--height-fluid">
+                    <div class="kt-widget14">
+                        <div class="kt-widget14__header kt-margin-b-30">
+                            <h3 class="kt-widget14__title">
+                                @Html.ActionLink("User", "Index", "Users", new { area = "" }, new { @class = "navbar-brand" })
+                            </h3>
+                            <span class="kt-widget14__desc">
+                                Check out each collumn for more details
+                            </span>
+                        </div>
+                        <div class="kt-widget14__chart" style="height:120px;">
+                            <img src="~/Content/assets/media/bg/User.jpg" height="150" width="270" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-4">
+            <div class="kt-portlet kt-portlet--height-fluid">
+                <div class="kt-portlet kt-portlet--height-fluid">
+                    <div class="kt-widget14">
+                        <div class="kt-widget14__header kt-margin-b-30">
+                            <h3 class="kt-widget14__title">
+                                @Html.ActionLink("Business Detail", "Index", "Business_Detail", new { area = "" }, new { @class = "navbar-brand" })
+                            </h3>
+                            <span class="kt-widget14__desc">
+                                Check out each collumn for more details
+                            </span>
+                        </div>
+                        <div class="kt-widget14__chart" style="height:120px;">
+                            <img src="~/Content/assets/media/bg/BusinessDetails.jpg" height="150" width="270" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<JustFinderTest.Business_Owner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_User_Layout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="kt-container  kt-grid__item kt-grid__item--fluid col-6">
+
+        <div class="kt-grid__item kt-app__toggle kt-app__aside" id="kt_user_profile_aside">
+            <!--begin:: Widgets/Applications/User/Profile1-->
+            <div class="kt-portlet ">
+                <div class="kt-portlet__head  kt-portlet__head--noborder">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                        </h3>
+                    </div>
+                    <div class="kt-portlet__head-toolbar">
+                        <a href="#" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown">
+                            <i class="flaticon-more-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="kt-portlet__body kt-portlet__body--fit-y">
+                    <!--begin::Widget -->
+
+                    <div class="kt-widget kt-widget--user-profile-1 col-8">
+                        @foreach (var item in Model)
+                        {
+                            <div class="kt-widget__head">
+                                <div class="kt-widget__media">
+                                    <img src="@Html.DisplayFor(modelItem => item.img)" alt="image" height="70" width="70" />
+                                </div>
+                                <div class="kt-widget__content">
+                                    <div class="kt-widget__section">
+                                        <a href="#" class="kt-widget__username">
+                                            @Html.DisplayFor(modelItem => item.name)
+                                            <i class="flaticon2-correct kt-font-success"></i>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="kt-widget__body">
+                                <div class="kt-widget__content">
+                                    <div class="kt-widget__subtitle">
+                                        <span class="kt-widget__label">Email:</span>
+                                        <span class="kt-widget__label">@Html.DisplayFor(modelItem => item.email)</span>
+
+                                    </div>
+                                    <div class="kt-widget__subtitle">
+                                        <span class="kt-widget__label">Phone:</span>
+                                        <span class="kt-widget__label">@Html.DisplayFor(modelItem => item.phno)</span>
+
+                                    </div>
+                                    <div class="kt-widget__subtitle">
+                                        <span class="kt-widget__label">Location:</span>
+                                        <span class="kt-widget__label">@Html.DisplayFor(modelItem => item.address)</span>
+                                        @*<span class="kt-widget__data">Melbourne</span>*@
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" text-center">
+                                @Html.ActionLink("Edit", "UserEdit", new { id = item.busi_id }, new { @class = "btn btn-primary btn-sm" })
+                                <a href="@Url.Action("MyBusinesses","Business_detail",new { businessid= item.busi_id})" class="btn btn-success btn-sm">
+                                    My Business
+                                </a>
+                            </div>
+                        }
+                    </div>
+
+
+                    <!--end::Widget -->
+                </div>
+            </div>
+            <!--end:: Widgets/Applications/User/Profile1-->
+        </div>
+    </div>
+    <div class="col-3">
+
+    </div>
+    </div>

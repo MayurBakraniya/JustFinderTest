@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JustFinderTestModelStoreContainer" CdmEntityContainer="JustFinderTestEntities1">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="JustFinderTestModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="area_name" ColumnName="area_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Business_detail">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Business_detail">
+        <MappingFragment StoreEntitySet="Business_detail">
+          <ScalarProperty Name="bid" ColumnName="bid" />
+          <ScalarProperty Name="bname" ColumnName="bname" />
+          <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+          <ScalarProperty Name="subcat_id" ColumnName="subcat_id" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="busi_email" ColumnName="busi_email" />
+          <ScalarProperty Name="phno" ColumnName="phno" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Business_Owner">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Business_Owner">
+        <MappingFragment StoreEntitySet="Business_Owner">
+          <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phno" ColumnName="phno" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_img" ColumnName="category_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="JustFinderTestModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_Us">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Contact_Us">
+        <MappingFragment StoreEntitySet="Contact_Us">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="busi_id" ColumnName="busi_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faqs">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Faq">
+        <MappingFragment StoreEntitySet="Faq">
+          <ScalarProperty Name="faq_id" ColumnName="faq_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="bid" ColumnName="bid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="JustFinderTestModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="state_name" ColumnName="state_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subcategories">
+      <EntityTypeMapping TypeName="JustFinderTestModel.Subcategory">
+        <MappingFragment StoreEntitySet="Subcategory">
+          <ScalarProperty Name="subcat_id" ColumnName="subcat_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="subcat_name" ColumnName="subcat_name" />
+          <ScalarProperty Name="subcat_img" ColumnName="subcat_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
